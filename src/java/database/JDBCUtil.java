@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
  */
 package database;
 
@@ -13,8 +13,11 @@ import java.sql.SQLException;
  *
  * @author tramy
  */
-public class JDBC {
-    public static Connection getConnection() {
+
+
+public class JDBCUtil {
+    
+     public static Connection getConnection() {
         Connection c = null;
         try {
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());

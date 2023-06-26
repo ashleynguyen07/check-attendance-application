@@ -1,6 +1,6 @@
 <%-- 
-    Document   : checkAttendance
-    Created on : Jun 10, 2023, 5:38:05 PM
+    Document   : 404
+    Created on : Jun 22, 2023, 11:01:36 PM
     Author     : tramy
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="front-end/user-checkAttendance.jsp" %>
+        <h1>Hello World!</h1>
     </body>
 </html>

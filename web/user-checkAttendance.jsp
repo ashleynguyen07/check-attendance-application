@@ -115,8 +115,7 @@
                                                                         </svg>
                                                                     </span>
                                                                 </div>
-                                                                <input type="text" class="form-control" placeholder="" aria-label=""
-                                                                       aria-describedby="basic-addon1">
+                                                                <input type="text" id="fullName" name="fullName" value="<%= request.getAttribute("fullName") %>" required>
                                                             </div>
 
                                                         </div>
@@ -133,7 +132,7 @@
                                                                         </svg>
                                                                     </span>
                                                                 </div>
-                                                                <select class="custom-select" id="select-item">
+                                                                <select class="work-place" id="select-item">
                                                                     <option selected>Choose...</option>
                                                                     <option value="1">Home</option>
                                                                     <option value="2">Company</option>

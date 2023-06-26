@@ -6,7 +6,7 @@
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Document</title>
-                    <link rel="stylesheet" href="front-end/css/home.css">
+                    <link rel="stylesheet" href="css/home.css">
                         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
                               integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
                             <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,7 +71,7 @@
                                         <body>
                                             <div class="user-icon">
                                                 <a class="btn" href="" target="_blank" rel="noopener noreferrer">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill"
+                                                    <svg xmlns="user-changeInfo.jsp" width="50" height="50" fill="currentColor" class="bi bi-person-fill"
                                                          viewBox="0 0 16 16">
                                                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                                     </svg>
@@ -81,14 +81,18 @@
 
                                             <div class="container">
                                                 <div class="logo">
-                                                    <img src="front-end/img/logo.png" alt="logo">
+                                                    <img src="img/logo.png" alt="logo">
                                                 </div>
                                                 <div class="box">
                                                     <div class="d-grid gap-2 mb-4 button-box">
-                                                        <button class="btn btn-primary button-btn" type="submit">ĐIỂM DANH</button>
+                                                        <form action="checkAttendanceServlet" method="post">
+                                                            <button class="checkAttendance btn btn-primary button-btn" type="submit">ĐIỂM DANH</button>
+                                                        </form>
                                                     </div>
                                                     <div class="d-grid gap-2 button-box">
-                                                        <button class="btn btn-primary button-btn" type="submit">KẾT THÚC LÀM</button>
+                                                        <form action="dayOffServlet" method="post">
+                                                            <button class="dayOff btn btn-primary button-btn" type="submit">NGHỈ PHÉP</button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

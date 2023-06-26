@@ -4,9 +4,6 @@
  */
 package controller;
 
-import database.AdminDAO;
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,15 +11,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import model.LoginModel;
 
 /**
  *
  * @author tramy
  */
-@WebServlet(name = "loginServlet", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "dayOffServlet", urlPatterns = {"/dayOffServlet"})
+public class dayOffServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +36,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
+            out.println("<title>Servlet dayOffServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet dayOffServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,8 +57,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**
@@ -76,26 +70,18 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        String u = request.getParameter("username");
-        String p = request.getParameter("password");
-        AdminDAO d = new AdminDAO();
-        LoginModel a = d.check(u, p);
-        HttpSession session = request.getSession();
-        String error = "";
-        if(a == null) {
-            //không tìm thấy account
-            request.setAttribute("error", "Username or Password invalid!");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-            
-        } else { //tìm thấy account -> tạo session
-            session.setAttribute("account", a);
-            //role 1: admin
-            if(a.getRole() == 1) {
-            request.getRequestDispatcher("admin-dashboard.jsp").forward(request, response);
-            }else {
-            request.getRequestDispatcher("user-dashboard.jsp").forward(request, response);
-            }
-        }
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

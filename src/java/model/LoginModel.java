@@ -12,6 +12,7 @@ public class LoginModel {
 
     private String username;
     private String password;
+    private int role;
 
     public LoginModel() {
     }
@@ -32,9 +33,19 @@ public class LoginModel {
         this.password = password;
     }
 
-    public LoginModel(String username, String password) {
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+    
+
+    public LoginModel(String username, String password, int role) {
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     
