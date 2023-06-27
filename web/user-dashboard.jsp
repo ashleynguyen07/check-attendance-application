@@ -69,6 +69,9 @@
                                         </style>
 
                                         <body>
+                                            <%
+        String username = (String)session.getAttribute("username");
+                                            %>
                                             <div class="user-icon">
                                                 <a class="btn" href="" target="_blank" rel="noopener noreferrer">
                                                     <svg xmlns="user-changeInfo.jsp" width="50" height="50" fill="currentColor" class="bi bi-person-fill"
@@ -83,19 +86,16 @@
                                                 <div class="logo">
                                                     <img src="img/logo.png" alt="logo">
                                                 </div>
+
                                                 <div class="box">
                                                     <div class="d-grid gap-2 mb-4 button-box">
-                                                        <form action="checkAttendanceServlet" method="post">
-                                                            <button class="checkAttendance btn btn-primary button-btn" type="submit">ĐIỂM DANH</button>
-                                                        </form>
+                                                        <a href="user-checkAttendance.jsp" class="btn btn-primary button-btn">ĐIỂM DANH</a></p>
                                                     </div>
                                                     <div class="d-grid gap-2 button-box">
-                                                        <form action="dayOffServlet" method="post">
-                                                            <button class="dayOff btn btn-primary button-btn" type="submit">NGHỈ PHÉP</button>
-                                                        </form>
+                                                        <a href="user-dayOff.jsp" class="btn btn-primary button-btn">NGHỈ PHÉP</a></p>
                                                     </div>
+
                                                 </div>
-                                            </div>
 
                                         </body>
 

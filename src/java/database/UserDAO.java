@@ -17,23 +17,20 @@ import model.LoginModel;
 public class UserDAO {
 
     /**
-     * @param username
-     * @return 
+     * @param args the command line arguments
      */
-    public LoginModel check(String username, String password) {
-        String sql = "SELECT * FROM [EmployeeManagement].[dbo].[NHANVIEN] WHERE HoVaTen=?";
+    public String getFullNameFromUsername(String username) throws SQLException  {
+        String fullName = "";
+        String sql = "SELECT * FROM [EmployeeManagement].[dbo].[NHANVIEN] WHERE Username=?";
         try {
             Connection conn = new JDBCUtil().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
             
             ps.setString(1, username);
-            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if(rs.next()) {
-                LoginModel a = new LoginModel(rs.getString("Username"), 
-                                    rs.getString("Password"), 
-                                    rs.getInt("Role"));
-                return a;
+                fullName = rs.getString("HoVaTen");
+                return fullName;
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -41,5 +38,3 @@ public class UserDAO {
         return null;
     }
 }
-    
-

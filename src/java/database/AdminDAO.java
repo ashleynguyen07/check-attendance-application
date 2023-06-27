@@ -19,21 +19,23 @@ public class AdminDAO {
     /**
      * @param username
      * @param password
-     * @return 
+     * @return
      */
     public LoginModel check(String username, String password) {
-        String sql = "SELECT * FROM [EmployeeManagement].[dbo].[LOGIN] WHERE username=? and password=?";
+        String sql = "SELECT * FROM [EmployeeManagement].[dbo].[NHANVIEN] WHERE Username=? and Password=?";
         try {
             Connection conn = new JDBCUtil().getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
-            
+
             ps.setString(1, username);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()) {
-                LoginModel a = new LoginModel(rs.getString("Username"), 
-                                    rs.getString("Password"), 
-                                    rs.getInt("Role"));
+                        
+            if (rs.next()) {
+                LoginModel a = new LoginModel(rs.getString("Username"),
+                        rs.getString("Password"),
+                        rs.getInt("Role"),
+                        rs.getString("HoVaTen"));
                 return a;
             }
         } catch (SQLException e) {
@@ -42,5 +44,3 @@ public class AdminDAO {
         return null;
     }
 }
-    
-

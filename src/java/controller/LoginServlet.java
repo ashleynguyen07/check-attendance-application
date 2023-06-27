@@ -76,26 +76,29 @@ public class LoginServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         String u = request.getParameter("username");
         String p = request.getParameter("password");
         AdminDAO d = new AdminDAO();
         LoginModel a = d.check(u, p);
         HttpSession session = request.getSession();
         String error = "";
-        if(a == null) {
+        if (a == null) {
             //không tìm thấy account
             request.setAttribute("error", "Username or Password invalid!");
             request.getRequestDispatcher("login.jsp").forward(request, response);
-            
+
         } else { //tìm thấy account -> tạo session
             session.setAttribute("account", a);
+            session.setAttribute("fullName", a.getFullName());
             //role 1: admin
-            if(a.getRole() == 1) {
-            request.getRequestDispatcher("admin-dashboard.jsp").forward(request, response);
-            }else {
-            request.getRequestDispatcher("user-dashboard.jsp").forward(request, response);
+            if (a.getRole() == 1) {
+                request.getRequestDispatcher("admin-dashboard.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("user-dashboard.jsp").forward(request, response);
             }
         }
+
+       
     }
 }

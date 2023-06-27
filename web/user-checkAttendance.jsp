@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html lang="en">
 
     <head>
@@ -94,6 +96,7 @@
                                                     </svg>
                                                 </a>
                                             </div>
+                                            <c:set var="account" value="${sessionScope.account}" />
                                             <%
                                              String username = request.getParameter("username");        
                                             %>
@@ -115,33 +118,35 @@
                                                                         </svg>
                                                                     </span>
                                                                 </div>
-                                                                <input type="text" id="fullName" name="fullName" value="<%= request.getAttribute("fullName") %>" required>
+                                                                <input name="fullName" type="text" class="form-control" placeholder="" aria-label=""
+                                                                       aria-describedby="basic-addon1" value="${account.fullName}">
+                                                                      
+                                                              
                                                             </div>
 
-                                                        </div>
-                                                        <div class="d-grid gap-2 justify-content-center box-1">
-                                                            <div class="input-group mb-3 box-input">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text" id="icon">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                                                             class="bi bi-building" viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z" />
-                                                                            <path
-                                                                                d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z" />
-                                                                        </svg>
-                                                                    </span>
+                                                            <div class="d-grid gap-2 justify-content-center box-1">
+                                                                <div class="input-group mb-3 box-input">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text" id="icon">
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                                                                 class="bi bi-building" viewBox="0 0 16 16">
+                                                                                <path
+                                                                                    d="M4 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z" />
+                                                                                <path
+                                                                                    d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V1Zm11 0H3v14h3v-2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V15h3V1Z" />
+                                                                            </svg>
+                                                                        </span>
+                                                                    </div>
+                                                                    <select class="work-place" id="select-item">
+                                                                        <option selected>Choose...</option>
+                                                                        <option value="1">Home</option>
+                                                                        <option value="2">Company</option>
+                                                                    </select>
                                                                 </div>
-                                                                <select class="work-place" id="select-item">
-                                                                    <option selected>Choose...</option>
-                                                                    <option value="1">Home</option>
-                                                                    <option value="2">Company</option>
-                                                                </select>
                                                             </div>
-                                                        </div>
-                                                        <div class="d-grid gap-2 justify-content-center">
-                                                            <button class="btn btn-primary submit-btn" type="submit">SUBMIT</button>
-                                                        </div>
+                                                            <div class="d-grid gap-2 justify-content-center">
+                                                                <button class="btn btn-primary submit-btn" type="submit">SUBMIT</button>
+                                                            </div>
                                                     </form>
                                                 </div>
                                             </div>

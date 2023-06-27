@@ -5,6 +5,7 @@
 --%>
 
 <%@page language="java" contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -74,7 +75,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                         baoLoi = "";
                                 }
                     %>
-                 
+
                     <div class="form-floating mb-3 lh-1">
                         <input name="username" type="text" class="form-control" id="username" placeholder="Username" required="">
                         <label for="floatingInput">Username</label>
