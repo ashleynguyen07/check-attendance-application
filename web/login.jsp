@@ -64,7 +64,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <div class="container position-relative">
             <div class="left-side">
-                <img src="img/logo.png" alt="logo">
+                <a href="login.jsp" target="_self">
+                    <img src="img/logo.png" alt="logo">
+                </a>
             </div>
             <div class="right-side">
                 <h1>Welcome!</h1>
