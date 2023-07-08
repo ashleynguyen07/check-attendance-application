@@ -15,7 +15,20 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
+        
+        <!--Bootstrap CSS-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!----css3---->
+        <link rel="stylesheet" href="css/custom.css">
 
+        <!--google fonts -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+        <!--google material icon-->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     </head>
 
     <%@include file="includes/style.jsp" %>
@@ -25,7 +38,7 @@
             String username = (String)session.getAttribute("username");
         %>
 
-        <%@include file="includes/header.jsp" %>
+        <%@include file="includes/user-top-navbar.jsp" %>
 
 
         <div class="container">
@@ -42,6 +55,15 @@
                 </div>
 
             </div>
+            
+            
+            
+            <!--  JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="js/jquery-3.3.1.slim.min.js"></script>
+            <script src="js/popper.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery-3.3.1.min.js"></script>
 
     </body>
 

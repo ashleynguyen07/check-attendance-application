@@ -19,13 +19,13 @@ import model.EmployeeModel;
  */
 public class EmployeeDAO {
 
-    private static final String INSERT_USERS_SQL = "INSERT INTO [dbo].[NHANVIEN]" + "  (HoVaTen, DiaChi, SDT, Email, Username, Password) VALUES "
-            + " (?, ?, ?, ?, ?, ?);";
+    private static final String INSERT_USERS_SQL = "INSERT INTO [dbo].[NHANVIEN]" + "  (HoVaTen,Email, DiaChi, SDT, Username, Password, Role) VALUES "
+            + " (?, ?, ?, ?, ?, ?, ?);";
 
     private static final String SELECT_USER_BY_ID = "select * from [dbo].[NHANVIEN] where Id_NhanVien =?";
     private static final String SELECT_ALL_USERS = "select * from [dbo].[NHANVIEN]";
     private static final String DELETE_USERS_SQL = "delete from [dbo].[NHANVIEN] where Id_NhanVien = ?;";
-    private static final String UPDATE_USERS_SQL = "UPDATE [dbo].[NHANVIEN]  SET  HovaTen=?, DiaChir=?,SDT=?,Email=?, Username=? WHERE Id_NhanVien=?";
+    private static final String UPDATE_USERS_SQL = "UPDATE [dbo].[NHANVIEN]  SET  HovaTen=?,Email=?, DiaChi=?,SDT=?, Username=?, Role=? WHERE Id_NhanVien=?";
 
     public void insertUser(EmployeeModel t) throws SQLException {
         System.out.println(INSERT_USERS_SQL);
@@ -63,9 +63,9 @@ public class EmployeeDAO {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)
-            
-         );
+                        rs.getString(7),
+                        rs.getInt(8)
+                );
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -93,7 +93,9 @@ public class EmployeeDAO {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)));
+                        rs.getString(7),
+                        rs.getInt(8)
+                ));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -118,7 +120,8 @@ public class EmployeeDAO {
             st.setString(3, t.getSDT());
             st.setString(4, t.getEmail());
             st.setString(5, t.getUsername());
-            st.setInt(6, t.getId_NhanVien());
+            st.setInt(6, t.getRole());
+            st.setInt(7, t.getId_NhanVien());
 
             rowUpdated = st.executeUpdate() > 0;
         }

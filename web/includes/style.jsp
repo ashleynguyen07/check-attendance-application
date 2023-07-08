@@ -43,6 +43,7 @@
     .user-icon {
         text-align: right;
         padding-right: 10px;
+        
     }
     .logo img {
         width: 90%;

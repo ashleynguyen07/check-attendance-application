@@ -22,11 +22,11 @@
         <!-- Start XP Col -->
         <div class="col-md-5 col-lg-3 order-3 order-md-2">
             <div class="xp-searchbar">
-                <div class="search-box">
+                <div class="search-box" style="padding-top: 5px;">
                     <div class="input-group">
                         <input type="text" id="search" class="form-control"
                                placeholder="Search by Name">
-                        <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+                            <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,10 @@
                     <ul class="nav navbar-nav flex-row ml-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" data-toggle="dropdown">
-                                <img src="img/user.jpg" style="width:40px; border-radius:50%;" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-fill"
+                                     viewBox="0 0 16 16" style="color: black;">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                </svg>                                
                                 <span class="xp-user-live"></span>
                             </a>
                             <ul class="dropdown-menu small-menu">
@@ -53,7 +56,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#"><span class="material-icons">
+                                    <a href="user?action=logout"><span class="material-icons">
                                             logout</span>Logout</a>
                                 </li>
                             </ul>

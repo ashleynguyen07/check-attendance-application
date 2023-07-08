@@ -32,6 +32,18 @@
                         <label>Phone</label>
                         <input type="text" class="form-control" required>
                     </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" required>
+                    </div>                   
+                    <div class="form-group">
+                        <label>Role</label><br>
+                        <select class="form-select" aria-label="Default select example" name="role" style="width: 100%"required>
+                            <option selected>Choose...</option>
+                            <option value="Employee">Employee</option>
+                            <option value="Manager">Manager</option>
+                        </select>                   
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal"

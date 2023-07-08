@@ -1,58 +1,3 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Jul 5, 2023, 2:56:57 AM
-    Author     : tramy
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&family=Cabin:wght@500&family=Kalam:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&family=Kalam:wght@700&display=swap');
-
-body {
-    background-color: rgba(247, 211, 211, 0.76);
-    font-family: 'Cabin', sans-serif;
-}
-
-.button-btn {
-    background: #EFA9A9;
-    border: 2px solid rgba(0, 0, 0, 0.27);
-    box-sizing: border-box;
-    font-size: 30px;
-    width: 400px;
-}
-
-.button-btn:hover {
-    background: #EFA9A9;
-    border: 3px solid rgba(0, 0, 0, 0.27);
-
-}
-
-.button-box {
-    justify-content: center;
-}
-
-.box {
-    margin-top: -50px;
-}
-
-i {
-    size: 100px;
-}
-
-.user-icon {
-    text-align: right;
-    padding-right: 10px;
-}
-.logo img {
-    width: 90%;
-    margin-left: 70px;
-}
-button::placeholder {
-    font-size: 15px;
-    color:aliceblue;
-}
 
 .left-side img {
     width: 200%;
@@ -75,3 +20,4 @@ input::placeholder {
     font-size: 15px;
     color:aliceblue;
 }
+

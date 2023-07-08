@@ -12,42 +12,48 @@ public class EmployeeModel {
 
     private int Id_NhanVien;
     private String HoVaTen;
+    private String Email;
     private String DiaChi;
     private String SDT;
     private String Username;
     private String Password;
-    private String Email;
+    private int Role;
 
-    public EmployeeModel(int Id_NhanVien, String HoVaTen, String DiaChi, String SDT, String Email, String Username, String Password) {
+    
+    //selectAllUser
+    public EmployeeModel(int Id_NhanVien, String HoVaTen, String Email, String DiaChi, String SDT, String Username, String Password, int Role) {
         this.Id_NhanVien = Id_NhanVien;
         this.HoVaTen = HoVaTen;
-        this.DiaChi = DiaChi;
-        this.SDT = SDT;
         this.Email = Email;
-        this.Username = Username;
-        this.Password = Password;
-    }
-
-    public EmployeeModel(int Id_NhanVien, String HoVaTen, String DiaChi, String SDT, String Username, String Email) {
-        this.Id_NhanVien = Id_NhanVien;
-        this.HoVaTen = HoVaTen;
-        this.DiaChi = DiaChi;
-        this.SDT = SDT;
-        this.Username = Username;
-        this.Email = Email;
-    }
-
-    public EmployeeModel(String HoVaTen, String DiaChi, String SDT, String Username, String Password, String Email) {
-        this.HoVaTen = HoVaTen;
         this.DiaChi = DiaChi;
         this.SDT = SDT;
         this.Username = Username;
         this.Password = Password;
+        this.Role = Role;
+    }
+
+    //updateUser
+
+    public EmployeeModel(int Id_NhanVien, String HoVaTen, String Email, String DiaChi, String SDT, String Username, int Role) {
+        this.Id_NhanVien = Id_NhanVien;
+        this.HoVaTen = HoVaTen;
         this.Email = Email;
+        this.DiaChi = DiaChi;
+        this.SDT = SDT;
+        this.Username = Username;
+        this.Role = Role;
     }
     
     
     
+
+    public int getRole() {
+        return Role;
+    }
+
+    public void setRole(int Role) {
+        this.Role = Role;
+    }
     
 
     public int getId_NhanVien() {
@@ -105,5 +111,14 @@ public class EmployeeModel {
     public void setPassword(String Password) {
         this.Password = Password;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeeModel{" + "Id_NhanVien=" + Id_NhanVien + ", HoVaTen=" + HoVaTen + ", DiaChi=" + DiaChi + ", SDT=" + SDT + ", Username=" + Username + ", Password=" + Password + ", Email=" + Email + ", Role=" + Role + '}';
+    }
+
+    
+    
+    
 
 }
