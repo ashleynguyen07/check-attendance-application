@@ -10,112 +10,109 @@ package model;
  */
 public class EmployeeModel {
 
-    private int Id_NhanVien;
-    private String HoVaTen;
-    private String Email;
-    private String DiaChi;
-    private String SDT;
-    private String Username;
-    private String Password;
-    private int Role;
+    private int id_NhanVien;
+    private String hoVaTen;
+    private String email;
+    private String diaChi;
+    private String sdt;
+    private String username;
+    private String password;
+    private int role;
 
     
     //selectAllUser
-    public EmployeeModel(int Id_NhanVien, String HoVaTen, String Email, String DiaChi, String SDT, String Username, String Password, int Role) {
-        this.Id_NhanVien = Id_NhanVien;
-        this.HoVaTen = HoVaTen;
-        this.Email = Email;
-        this.DiaChi = DiaChi;
-        this.SDT = SDT;
-        this.Username = Username;
-        this.Password = Password;
-        this.Role = Role;
+    public EmployeeModel(int id_NhanVien, String hoVaTen, String email, String diaChi, String sdt, String username, String password, int role) {
+        this.id_NhanVien = id_NhanVien;
+        this.hoVaTen = hoVaTen;
+        this.email = email;
+        this.diaChi = diaChi;
+        this.sdt = sdt;
+        this.username = username;
+        this.password = password;
+        this.role = role;
     }
 
     //updateUser
 
-    public EmployeeModel(int Id_NhanVien, String HoVaTen, String Email, String DiaChi, String SDT, String Username, int Role) {
-        this.Id_NhanVien = Id_NhanVien;
-        this.HoVaTen = HoVaTen;
-        this.Email = Email;
-        this.DiaChi = DiaChi;
-        this.SDT = SDT;
-        this.Username = Username;
-        this.Role = Role;
-    }
-    
-    
-    
-
-    public int getRole() {
-        return Role;
-    }
-
-    public void setRole(int Role) {
-        this.Role = Role;
+    public EmployeeModel(int id_NhanVien, String hoVaTen, String email, String diaChi, String sdt, String username, int role) {
+        this.id_NhanVien = id_NhanVien;
+        this.hoVaTen = hoVaTen;
+        this.email = email;
+        this.diaChi = diaChi;
+        this.sdt = sdt;
+        this.username = username;
+        this.role = role;
     }
     
 
     public int getId_NhanVien() {
-        return Id_NhanVien;
+        return id_NhanVien;
     }
 
-    public void setId_NhanVien(int Id_NhanVien) {
-        this.Id_NhanVien = Id_NhanVien;
+    public void setId_NhanVien(int id_NhanVien) {
+        this.id_NhanVien = id_NhanVien;
     }
 
     public String getHoVaTen() {
-        return HoVaTen;
+        return hoVaTen;
     }
 
-    public void setHoVaTen(String HoVaTen) {
-        this.HoVaTen = HoVaTen;
-    }
-
-    public String getDiaChi() {
-        return DiaChi;
-    }
-
-    public void setDiaChi(String DiaChi) {
-        this.DiaChi = DiaChi;
-    }
-
-    public String getSDT() {
-        return SDT;
-    }
-
-    public void setSDT(String SDT) {
-        this.SDT = SDT;
+    public void setHoVaTen(String hoVaTen) {
+        this.hoVaTen = hoVaTen;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
-    public void setUsername(String Username) {
-        this.Username = Username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "EmployeeModel{" + "Id_NhanVien=" + Id_NhanVien + ", HoVaTen=" + HoVaTen + ", DiaChi=" + DiaChi + ", SDT=" + SDT + ", Username=" + Username + ", Password=" + Password + ", Email=" + Email + ", Role=" + Role + '}';
+    public int getRole() {
+        return role;
     }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+    
+    
+    
+
+    
 
     
     

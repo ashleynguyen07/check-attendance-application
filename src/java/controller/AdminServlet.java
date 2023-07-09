@@ -4,6 +4,7 @@
  */
 package controller;
 
+import database.AdminDAO;
 import database.EmployeeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
 import java.util.List;
 import model.EmployeeModel;
 
@@ -23,14 +25,14 @@ import model.EmployeeModel;
 public class AdminServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+            throws ServletException, IOException, SQLException {
+        
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         try {
             //get data from DAO
             EmployeeDAO dao = new EmployeeDAO();
@@ -39,7 +41,7 @@ public class AdminServlet extends HttpServlet {
             //set data to jsp
             request.setAttribute("data", ls);
             request.getRequestDispatcher("admin-dashboard.jsp").forward(request, response);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             // Handle the exception as appsropriate
@@ -47,9 +49,11 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
+    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {           
+            throws ServletException, IOException {
     }
 
     @Override

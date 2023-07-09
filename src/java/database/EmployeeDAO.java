@@ -33,7 +33,7 @@ public class EmployeeDAO {
         try ( Connection connection = getConnection();  PreparedStatement st = connection.prepareStatement(INSERT_USERS_SQL)) {
             st.setString(1, t.getHoVaTen());
             st.setString(2, t.getDiaChi());
-            st.setString(3, t.getSDT());
+            st.setString(3, t.getSdt());
             st.setString(4, t.getEmail());
             st.setString(5, t.getUsername());
             st.setString(6, t.getPassword());
@@ -82,7 +82,7 @@ public class EmployeeDAO {
                   PreparedStatement st = connection.prepareStatement(SELECT_ALL_USERS);) {
             System.out.println(st);
             // Step 3: Execute the query or update query
-            ResultSet rs = st.executeQuery();
+            ResultSet rs = st.executeQuery(); // trả về dữ liệu thì dùng executeQuery
 
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
@@ -103,13 +103,13 @@ public class EmployeeDAO {
         return users;
     }
 
-    public boolean deleteUser(int id) throws SQLException {
-        boolean rowDeleted;
+    public void deleteUser(String id) throws SQLException {
         try ( Connection connection = getConnection();  PreparedStatement st = connection.prepareStatement(DELETE_USERS_SQL);) {
-            st.setInt(1, id);
-            rowDeleted = st.executeUpdate() > 0;
+            st.setString(1, id);
+            st.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
+        } catch(Exception e) {
+            e.printStackTrace();
         }
-        return rowDeleted;
     }
 
     public boolean updateUser(EmployeeModel t) throws SQLException {
@@ -117,7 +117,7 @@ public class EmployeeDAO {
         try ( Connection connection = getConnection();  PreparedStatement st = connection.prepareStatement(UPDATE_USERS_SQL);) {
             st.setString(1, t.getHoVaTen());
             st.setString(2, t.getDiaChi());
-            st.setString(3, t.getSDT());
+            st.setString(3, t.getSdt());
             st.setString(4, t.getEmail());
             st.setString(5, t.getUsername());
             st.setInt(6, t.getRole());

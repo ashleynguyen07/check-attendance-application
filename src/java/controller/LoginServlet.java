@@ -93,9 +93,11 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("fullName", a.getFullName());
             //role 1: admin
             if (a.getRole() == 1) {
-                response.sendRedirect("admin-dashboard.jsp");
-            } else {
+                response.sendRedirect("admin-dashboard");
+            } else if (a.getRole() == 2){
                 response.sendRedirect("user-dashboard.jsp");
+            } else {
+                
             }
         }
 
