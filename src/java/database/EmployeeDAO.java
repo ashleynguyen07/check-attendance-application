@@ -19,28 +19,25 @@ import model.EmployeeModel;
  */
 public class EmployeeDAO {
 
-    private static final String INSERT_USERS_SQL = "INSERT INTO [dbo].[NHANVIEN]" + "  (HoVaTen,Email, DiaChi, SDT, Username, Password, Role) VALUES "
-            + " (?, ?, ?, ?, ?, ?, ?);";
-
+    private static final String INSERT_USERS_SQL = "INSERT INTO [dbo].[NHANVIEN]" + " VALUES " + " (?, ?, ?,?, ?, ?,?);";
     private static final String SELECT_USER_BY_ID = "select * from [dbo].[NHANVIEN] where Id_NhanVien =?";
     private static final String SELECT_ALL_USERS = "select * from [dbo].[NHANVIEN]";
     private static final String DELETE_USERS_SQL = "delete from [dbo].[NHANVIEN] where Id_NhanVien = ?;";
     private static final String UPDATE_USERS_SQL = "UPDATE [dbo].[NHANVIEN]  SET  HovaTen=?,Email=?, DiaChi=?,SDT=?, Username=?, Role=? WHERE Id_NhanVien=?";
 
-    public void insertUser(EmployeeModel t) throws SQLException {
-        System.out.println(INSERT_USERS_SQL);
-        // try-with-resource statement will auto close the connection.
-        try ( Connection connection = getConnection();  PreparedStatement st = connection.prepareStatement(INSERT_USERS_SQL)) {
-            st.setString(1, t.getHoVaTen());
-            st.setString(2, t.getDiaChi());
-            st.setString(3, t.getSdt());
-            st.setString(4, t.getEmail());
-            st.setString(5, t.getUsername());
-            st.setString(6, t.getPassword());
-            System.out.println(st);
-            st.executeUpdate();
-        } catch (SQLException e) {
-            printSQLException(e);
+    public void insertUser(String name, String email, String address, String phone, String username, String password, String role) throws SQLException {
+        try ( Connection connection = getConnection();  PreparedStatement st = connection.prepareStatement(INSERT_USERS_SQL);) {
+            st.setString(1, name);
+            st.setString(2, email);
+            st.setString(3, address);
+            st.setString(4, phone);
+            st.setString(5, username);
+            st.setString(6, password);
+            st.setString(7, role);
+
+            st.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
+        } catch (Exception e) {
+            System.out.println("loi" + e + "loi");
         }
     }
 
@@ -107,7 +104,7 @@ public class EmployeeDAO {
         try ( Connection connection = getConnection();  PreparedStatement st = connection.prepareStatement(DELETE_USERS_SQL);) {
             st.setString(1, id);
             st.executeUpdate(); // không trả dữ liệu thì dùng executeUpdate
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -126,6 +123,34 @@ public class EmployeeDAO {
             rowUpdated = st.executeUpdate() > 0;
         }
         return rowUpdated;
+    }
+    
+    public EmployeeModel getEmployeeByID(String id) {
+        try ( Connection connection = getConnection(); // Step 2:Create a statement using connection object
+                  PreparedStatement st = connection.prepareStatement(SELECT_USER_BY_ID);) {
+            st.setString(1, id);
+
+            System.out.println(st);
+            // Step 3: Execute the query or update query
+            ResultSet rs = st.executeQuery(); // trả về dữ liệu thì dùng executeQuery
+
+            // Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                return new EmployeeModel(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getInt(8)
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("loi" + e + "loi");
+        }
+        return null;
     }
 
     private void printSQLException(SQLException ex) {

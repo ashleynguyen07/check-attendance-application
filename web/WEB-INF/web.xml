@@ -29,6 +29,14 @@
         <servlet-name>Delete</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateEmployee</servlet-name>
+        <servlet-class>controller.UpdateEmployee</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateEmployee</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
     
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>

@@ -64,8 +64,7 @@
 
 
             <script type="text/javascript">
-                
-
+  
                 $(document).ready(function () {
                     $(".xp-menubar").on('click', function () {
                         $('#sidebar').toggleClass('active');

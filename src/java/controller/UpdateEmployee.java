@@ -12,17 +12,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import static java.lang.Integer.parseInt;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import model.EmployeeModel;
 
 /**
  *
  * @author tramy
  */
-@WebServlet(name = "Delete", urlPatterns = {"/delete"})
-public class Delete extends HttpServlet {
+@WebServlet(name = "UpdateEmployee", urlPatterns = {"/update"})
+public class UpdateEmployee extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,8 +31,20 @@ public class Delete extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
-        
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UpdateEmployeee</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UpdateEmployeee at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,24 +58,24 @@ public class Delete extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException { 
-               try {
-            String id = request.getParameter("id_NhanVien");
-   
-            //get data from DAO
-            EmployeeDAO dao = new EmployeeDAO();
-            dao.deleteUser(id);
-            response.sendRedirect("admin-dashboard");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Handle the exception as appsropriate
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        }
+            throws ServletException, IOException {
+//        processRequest(request, response);
+        String id = request.getParameter("employee_id");
+        EmployeeDAO dao = new EmployeeDAO();
+        EmployeeModel s = dao.getEmployeeByID(id);
+        System.out.print(dao);
+        request.setAttribute("em", s);
+        request.getRequestDispatcher("includes/admin-dashboard-edit-model.jsp").forward(request, response);
     }
 
-    
-    
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

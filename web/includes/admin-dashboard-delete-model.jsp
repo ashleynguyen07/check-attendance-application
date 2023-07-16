@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
@@ -22,7 +24,7 @@
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal"
                            value="Cancel">
-                    <input type="submit" class="btn btn-danger" value="Delete">
+                    <a href="delete?id_NhanVien=${x.id_NhanVien}"><input type="button" class="btn btn-danger" value="Delete"></a>
                 </div>
             </form>
         </div>
