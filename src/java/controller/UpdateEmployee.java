@@ -65,7 +65,7 @@ public class UpdateEmployee extends HttpServlet {
         EmployeeModel s = dao.getEmployeeByID(id);
         System.out.print(dao);
         request.setAttribute("em", s);
-        request.getRequestDispatcher("includes/admin-dashboard-edit-model.jsp").forward(request, response);
+        request.getRequestDispatcher("/includes/admin-dashboard-edit-model.jsp").forward(request, response);
     }
 
     /**

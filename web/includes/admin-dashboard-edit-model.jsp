@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!-- Edit Modal HTML -->
 <div id="editEmployeeModal" class="modal fade">
     <div class="modal-dialog">
@@ -15,33 +17,34 @@
                     <button type="button" class="close" data-dismiss="modal"
                             aria-hidden="true">&times;</button>
                 </div>
+                <c:set var="x" value="${requestScope.em}"/>
                 <div class="modal-body">                   
                     <div class="form-group">
                         <label>Name</label>
-                        <input value="${em.hoVaTen}" name="name" type="text" class="form-control" required>
+                        <input value="${x.hoVaTen}" name="name" type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input value="${em.email}" name="email" type="email" class="form-control" required>
+                        <input value="${x.email}" name="email" type="email" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea value="${em.diaChi}" name="address" class="form-control" required></textarea>
+                        <textarea value="${x.diaChi}" name="address" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input value="${em.sdt}" name="phone" type="text" class="form-control" required>
+                        <input value="${x.sdt}" name="phone" type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Username</label>
-                        <input value="${em.username}" name="username" type="text" class="form-control" required>
+                        <input value="${x.username}" name="username" type="text" class="form-control" required>
                     </div>                    
                     <div class="form-group">
                         <label>Role</label><br>
                         <select class="form-select" aria-label="Default select example" name="role" style="width: 100%"required>
                             <option selected>Choose...</option>
-                            <option value="1" ${em.role == 1?"checked":""}>Employee</option>
-                            <option value="2" ${em.role == 2?"checked":""}>Manager</option>
+                            <option value="1" ${x.role == 1?"checked":""}>Employee</option>
+                            <option value="2" ${x.role == 2?"checked":""}>Manager</option>
                         </select>                   
                     </div>
                 </div>
